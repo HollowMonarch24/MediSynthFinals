@@ -98,8 +98,8 @@ namespace MediSynthFinals.Controllers
             if (Changesched != null)
             {
                 Changesched.scheduleId = Changesched.scheduleId;
-                Changesched.scheduleDate = Changesched.scheduleDate;
                 Changesched.scheduleInfo = Changesched.scheduleInfo;
+                Changesched.scheduleDate = Changesched.scheduleDate;
 
             }
 

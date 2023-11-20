@@ -5,3 +5,26 @@
 }
 @model UserSchedule
 
+<h1>Add Schedule<form></form>
+
+<form asp-action="Add Schedule" method="post">
+
+    <div class="form-group">
+        <label asp-for="scheduleId"></label>
+        <input asp-for="scheduleId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="scheduleInfo"></label>
+        <input asp-for="scheduleInfo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="scheduleDate"></label>
+        <input asp-for="scheduleDate" class="form-control" />
+    </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" onclick="history.back();">Cancel</button>
+    </form>
+
