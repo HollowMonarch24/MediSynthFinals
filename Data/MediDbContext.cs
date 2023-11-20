@@ -18,6 +18,8 @@ namespace MediSynthFinals.Data
         public DbSet<RecordMedHistory> RecordMedHistory { get; set; }
         public DbSet<UserCredentials> UserCredentials { get; set; }
 
+        public DbSet<UserSchedule> userSchedules { get; set; }
+
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    base.OnModelCreating(modelBuilder);

@@ -42,5 +42,71 @@ namespace MediSynthFinals.Controllers
             return NotFound();
         }
 
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            //Search for the doctor whose id matches the given id
+            UserCredentials? doc = _dbContext.UserCredentials.FirstOrDefault(UserCredentials => UserCredentials.userId == Id);
+
+            if (doc != null)
+            {
+                return View(doc);
+            }
+            return NotFound();
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(UserCredentials ChangeDocCredentials)
+        {
+            UserCredentials? doctor = _dbContext.UserCredentials.FirstOrDefault(UserCredentials => UserCredentials.userId == ChangeDocCredentials.userId);
+            if (doctor != null)
+            {
+                doctor.userId = ChangeDocCredentials.userId;
+                doctor.username = ChangeDocCredentials.username;
+                doctor.password = ChangeDocCredentials.password;
+                doctor.fName = ChangeDocCredentials.fName;
+                doctor.lName = ChangeDocCredentials.lName;
+                doctor.email = ChangeDocCredentials.email;
+                doctor.contactNum = ChangeDocCredentials.contactNum;
+                doctor.department = ChangeDocCredentials.department;
+                doctor.userRole = ChangeDocCredentials.userRole;
+
+            }
+
+            return View("Index", _dbContext.UserCredentials);
+        }
+
+        [HttpGet]
+        public IActionResult AddSchedule(int Id)
+        {
+            //Search for the doctor whose id matches the given id
+            UserSchedule? docsched = _dbContext.userSchedules.FirstOrDefault(UserSchedule => UserSchedule.scheduleId == Id);
+
+            if (docsched != null)
+            {
+                return View(docsched);
+            }
+            return NotFound();
+
+        }
+
+        [HttpPost]
+        public IActionResult Addsche(UserSchedule Changesched)
+        {
+            UserSchedule? changdocsched = _dbContext.userSchedules.FirstOrDefault(UserSchedule => UserSchedule.scheduleId == Changesched.scheduleId);
+            if (Changesched != null)
+            {
+                Changesched.scheduleId = Changesched.scheduleId;
+                Changesched.scheduleDate = Changesched.scheduleDate;
+                Changesched.scheduleInfo = Changesched.scheduleInfo;
+
+            }
+
+            return View("Index", _dbContext.userSchedules);
+        }
+
     }
+
+
 }

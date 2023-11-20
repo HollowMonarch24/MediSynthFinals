@@ -21,7 +21,9 @@
             <td>@doc.email</td>
             <td>@doc.contactNum</td>
             <td>@doc.department</td>
+            <td><a asp-action="Edit" asp-route-id="@doc.userId" class="btn btn-primary">Edit Personal Information</a></td>
             <td><a asp-action="Details" asp-route-id="@doc.userId" class="btn btn-primary">View Schedule</a></td>
+            <a class="btn btn-primary" asp-action="AddSchedule">Add Schedule</a>
         </tr>
     }
 </table>
